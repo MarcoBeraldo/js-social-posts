@@ -94,7 +94,7 @@ for (let i = 0; i < posts.length; i++) {
     <span class="like-button__label">Mi Piace</span>
     </a>
     </div>
-    <div class="likes__counter">Piace a <b id="like-counter-1" class="js-likes-counter">${post.likes}</b> persone</div>
+    <div class="likes__counter">Piace a <b id="like-counter-${i}" class="js-likes-counter">${post.likes}</b> persone</div>
     </div>
     </div>
     </div>
@@ -102,12 +102,16 @@ for (let i = 0; i < posts.length; i++) {
 
     container.innerHTML = postContent;
 
-    const likeButton = document.getElementsByClassName("like-button")[0];
-    likeButton.addEventListener("click", function () {
-        post.likes += 1;
-        likeButton.classList.toggle('bcg-blue')
-    })
 
 
 
 }
+const likeButtons = document.getElementsByClassName("like-button");
+for (let j = 0; j < likeButtons.length; j++)
+    likeButtons[j].addEventListener("click", function () {
+        const likeCounter = document.getElementById(`like-counter-${j}`)
+
+        if (likeButtons[j].classList.contains("bcg-blue")) likeCounter.innerHTML = `${posts[j].likes}`
+        else likeCounter.innerHTML = `${posts[j].likes + 1}`;
+        likeButtons[j].classList.toggle('bcg-blue')
+    })
