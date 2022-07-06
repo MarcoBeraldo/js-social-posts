@@ -65,6 +65,7 @@ const posts = [
 ]
 const container = document.getElementById('container');
 let postContent = ''
+
 for (let i = 0; i < posts.length; i++) {
     const post = posts[i]
     postContent += `<div class="post">
