@@ -111,7 +111,7 @@ for (let j = 0; j < likeButtons.length; j++)
     likeButtons[j].addEventListener("click", function () {
         const likeCounter = document.getElementById(`like-counter-${j}`)
 
-        if (likeButtons[j].classList.contains("bcg-blue")) likeCounter.innerHTML = `${posts[j].likes}`
+        if (likeButtons[j].classList.contains("text-blue")) likeCounter.innerHTML = `${posts[j].likes}`
         else likeCounter.innerHTML = `${posts[j].likes + 1}`;
-        likeButtons[j].classList.toggle('bcg-blue')
+        likeButtons[j].classList.toggle('text-blue')
     })
